@@ -2373,7 +2373,88 @@ function App() {
 
 function KpiCard({ val, label, sub, col, warn, extra }) {
   return (
-    React.createElement("div",{"style":{ background: '#161923', border: '1px solid #252a3a', borderRadius: 12, padding: '18px 22px' }},React.createElement("div",{"style":{ fontFamily: 'DM Mono,monospace', fontSize: 22, fontWeight: 600, color: col, letterSpacing: -.5 }},val),React.createElement("div",{"style":{ fontSize: 10, textTransform: 'uppercase', letterSpacing: .8, color: '#5a6080', marginTop: 4 }},label),React.createElement("div",{"style":{ fontSize: 11, color: '#5a6080', marginTop: 5 }},sub),warn  && React.createElement("div",{"style":{ background: 'rgba(240,185,108,.1)', border: '1px solid rgba(240,185,108,.3)', borderRadius: 6, padding: '6px 10px', fontSize: 11, color: '#f0b96c', marginTop: 8 }},warn),extra && React.createElement("div",{"style":{ fontSize: 11, color: '#f0b96c', marginTop: 6 }},extra))
+    React.createElement("div", {
+      style: {
+        background: 'linear-gradient(145deg, #161923 0%, #1c2133 100%)',
+        border: '1px solid rgba(108,142,240,0.15)',
+        borderRadius: 14,
+        padding: '20px 22px',
+        position: 'relative',
+        overflow: 'hidden',
+        boxShadow: '0 6px 18px rgba(0,0,0,0.25)',
+        transition: 'all .25s ease'
+      }
+    },
+
+    // subtle glow accent bar
+    React.createElement("div", {
+      style: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '4px',
+        height: '100%',
+        background: col,
+        opacity: 0.8
+      }
+    }),
+
+    // main value
+    React.createElement("div", {
+      style: {
+        fontFamily: 'DM Mono,monospace',
+        fontSize: 26,
+        fontWeight: 700,
+        color: col,
+        letterSpacing: '-0.5px'
+      }
+    }, val),
+
+    // label
+    React.createElement("div", {
+      style: {
+        fontSize: 10,
+        textTransform: 'uppercase',
+        letterSpacing: '.9px',
+        color: '#5a6080',
+        marginTop: 6
+      }
+    }, label),
+
+    // subtext
+    React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: '#7a8099',
+        marginTop: 6,
+        lineHeight: 1.4
+      }
+    }, sub),
+
+    // warning (improved)
+    warn && React.createElement("div", {
+      style: {
+        background: 'rgba(240,185,108,.08)',
+        border: '1px solid rgba(240,185,108,.3)',
+        borderRadius: 6,
+        padding: '6px 10px',
+        fontSize: 11,
+        color: '#f0b96c',
+        marginTop: 10,
+        fontWeight: 500
+      }
+    }, warn),
+
+    // extra info
+    extra && React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: '#5dd87a',
+        marginTop: 8,
+        fontWeight: 500
+      }
+    }, extra)
+    )
   );
 }
 
